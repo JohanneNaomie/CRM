@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  crm-database:
+    image: mysql:8.0.33
+    container_name: crm-database
+    environment:
+      MYSQL_ROOT_PASSWORD: password      # Define a fixed password for MySQL
+      MYSQL_DATABASE: crm                          # The database to create
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - crm-network
+    ports:
+      - "3306:3306"
+
+  crm-backend:
+    build: .  # This tells Docker Compose to build the Spring Boot application from the Dockerfile in the current directory
+    container_name: crm-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://crm-database:3306/crm?createDatabaseIfNotExist=true  # Use crm-database as the host
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password  # The same password you defined above
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+    depends_on:
+      - crm-database
+    ports:
+      - "8080:8080"
+    networks:
+      - crm-network
+
+networks:
+  crm-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local

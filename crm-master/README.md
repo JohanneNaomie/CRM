@@ -1,5 +1,5 @@
 # CRM Web Application
-
+                                                                                                                                                
 This CRM (Customer Relationship Management) application is built using Spring Boot MVC, Thymeleaf, Hibernate, MySQL, and Java 17. The application provides a comprehensive solution for managing customer interactions, tasks, appointments, and communication. It also integrates with various Google services, including Google Drive, Gmail, and Google Calendar, to enhance productivity and collaboration.
 
 ## **Prerequisites**
@@ -9,7 +9,7 @@ Before installing the CRM application, ensure the following:
 - Java 17 is installed on your machine.
 - MySQL database is set up and running.
 - Obtain valid MySQL connection details (URL, username, password).
-- Obtain Google API credentials for integration with Google services (Drive, Gmail, Calendar).
+- Obtain Google API credentials for integration with Google services (Drive, Gmail, Calendar). #tohizana
 
 ## Installation
 
