@@ -9,6 +9,10 @@
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
             </b>
                 <span>CRM</span>
+                <div th:if="${message}" class="alert alert-success">
+                    <span th:text="${message}"></span>
+                </div>
+                
             </a>
         </div>
         <!-- ============================================================== -->
@@ -65,6 +69,8 @@
                         <!-- text-->
                     </div>
                 </li>
+
+                
                 <!-- ============================================================== -->
                 <!-- End User Profile -->
                 <!-- ============================================================== -->
